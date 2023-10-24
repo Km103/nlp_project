@@ -1,6 +1,6 @@
 import nltk
 from nltk.probability import FreqDist
-#nltk.download('punkt')
+nltk.download('punkt')
 def freq(text):
     #tokenise the text
     book_tokens = nltk.word_tokenize(text)

@@ -1,6 +1,6 @@
 import nltk
 from nltk.probability import FreqDist
-#nltk.download('punkt')
+nltk.download('punkt')
 
 def createToken(text):
 # Tokenize the text
