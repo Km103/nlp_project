@@ -7,6 +7,7 @@ from pos_tagging import tagging
 from probabilities import getBiGramProb
 from blanks import shannon
 from accuracy import  calculate_accuracy
+from plot import createPlot
 
 
 # Open  book in read mode
@@ -35,8 +36,12 @@ freqTable=freq(filtered_book)
 for token, frequency in freqTable:
     print(f'{token}: {frequency}')
 
+
 # creating the word cloud
 cloud(createToken(filtered_book))
+
+# creating the plot
+createPlot(createToken(filtered_book))
 
 # POS tagging using Penn Treebank 
 tagging(createToken(filtered_book))

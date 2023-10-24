@@ -1,7 +1,7 @@
 import nltk
 from nltk.corpus import stopwords
-nltk.download('stopwords')
-nltk.download('punkt')
+#nltk.download('stopwords')
+#nltk.download('punkt')
 
 def stop_words(text):
     words = nltk.word_tokenize(text)
