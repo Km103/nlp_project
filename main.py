@@ -4,8 +4,8 @@ from frequency import freq
 from word_cloud import cloud
 from tokenise import createToken
 from pos_tagging import tagging
-from probabilities import getBiGramProb,PrintTable
-from blanks import shannon
+from probabilities import getBiGramProb
+from blanks import shannon,blank_positions
 from accuracy import  calculate_accuracy
 from plot import createPlot
 
@@ -54,7 +54,7 @@ chapter_tokens=createToken(modified_chapter)
 
 #creating and printing the bigram probabilities of the longest chapter 
 bi_gram_prob=getBiGramProb(chapter_tokens)
-PrintTable(bi_gram_prob,chapter_tokens)
+#print(bi_gram_prob)
 
 #cleaning the other chapter
 modified_other_chapter= preprocess_text(other_chapter)
@@ -66,12 +66,13 @@ original_text = ' '.join(other_chapter_tokens)
 
 # create n blanks and predict the word using bi gram prob table created 
 # earlier from the longest chapter. // Playing  Shannon game 
-# lets have  n = 500
-filled_text=shannon(500,other_chapter_tokens,bi_gram_prob)
+# lets have  n = 50
+
+filled_text=shannon(50,other_chapter_tokens,bi_gram_prob)
 
 # calculating accuracy
 
-accuracy=calculate_accuracy(original_text,filled_text)
+accuracy=calculate_accuracy(original_text,filled_text,blank_positions)
 print("Accuracy: {:.2f}%".format(accuracy))
 
 
