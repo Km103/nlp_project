@@ -22,7 +22,7 @@ def shannon(num_blanks,tokens,bi_gram_probabilities):
         preceding_word = tokens[blank_position]
 
         # Predict the missing word based on the preceding word using bi-gram probabilities
-        candidate_words = [word2 for (word1, word2), prob in bi_gram_probabilities.items() if word1 == preceding_word]
+        candidate_words = [word2 for (word1, word2) in bi_gram_probabilities if word1 == preceding_word]
 
         # Randomly select a candidate word
         if candidate_words:
@@ -37,6 +37,6 @@ def shannon(num_blanks,tokens,bi_gram_probabilities):
     # Join the tokens to form the complete text
     filled_text = ' '.join(tokens)
 
-    return filled_text
+    return (filled_text,blank_positions)
 
 
