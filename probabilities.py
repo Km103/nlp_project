@@ -65,12 +65,26 @@ def getBiGramProb(tokens):
     bi_gram_probabilities=probability_table(distinct_tokens,dct,dct1)
     bi_gram_prob={}
 
+    cnt=0
     # convert the list to the dictionary with bigrams as key 
     for i in range(n):
          for j in range(n):
+             if(bi_gram_probabilities[i][j]!=0):
+                 cnt+=1
              bi_gram_prob.update({(distinct_tokens[i],distinct_tokens[j]):bi_gram_probabilities[i][j]})
 
+    print('No. of non zero probabilities in bi gram model',cnt)
+    print("Total values in bi gram model", n*n)
     return bi_gram_prob
+
+def PrintProb(bi_gram_prob):
+
+    # picking 10 random items
+    random_items = random.sample(bi_gram_prob.items(), 10)
+
+    print("Printing random 10 probabilities of bi gram model")
+    for key, value in random_items:
+        print(f'{key}: {value}')
 
 
     

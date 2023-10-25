@@ -9,6 +9,9 @@ def calculate_accuracy(original_text, filled_text,blank_positions):
         if(original_text[pos]==filled_text[pos]):
             correct_count=correct_count+1
 
+    print('correct count:', correct_count)
+    print('no of blanks :', n)
+
     # accuracy that the blank has been filled with original value
     accuracy = (correct_count / n) * 100
     return accuracy

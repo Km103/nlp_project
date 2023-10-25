@@ -4,7 +4,7 @@ from frequency import freq
 from word_cloud import cloud
 from tokenise import createToken
 from pos_tagging import tagging
-from probabilities import getBiGramProb
+from probabilities import getBiGramProb,PrintProb
 from blanks import shannon,blank_positions
 from accuracy import  calculate_accuracy
 from plot import createPlot
@@ -55,6 +55,10 @@ chapter_tokens=createToken(modified_chapter)
 #creating and printing the bigram probabilities of the longest chapter 
 bi_gram_prob=getBiGramProb(chapter_tokens)
 #print(bi_gram_prob)
+
+#printing the  random 10   prob in bi gram model
+
+print(PrintProb(bi_gram_prob))
 
 #cleaning the other chapter
 modified_other_chapter= preprocess_text(other_chapter)
